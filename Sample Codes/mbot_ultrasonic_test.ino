@@ -7,7 +7,7 @@ Author: Sangit Sasidhar
 
 #define SERIAL_MONITOR_ACTIVATE 1 /* Set to 1 to use the serial monitor; set to 0 to disable the serial monitor  */
 
-MeUltrasonic ultraSensor(PORT_3); 
+MeUltrasonicSensor ultraSensor(PORT_3); 
 
 void setup()
 {
