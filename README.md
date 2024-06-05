@@ -10,9 +10,10 @@
   - [Activity 0: Setting up Serial Communications](#activity-0-setting-up-serial-communications) 
   - [Activity 1: Ultrasonic Sensors](#activity-1-ultrasonic-sensors)
   - [Activity 2: RGB LEDs](#activity-2-rgb-led)
-  - [Activity 3: Line Follower](#activity-3-line-follower)
-  - [Activity 4: Wheel Control](#activity-4-wheel-control)
-  - [Activity 5: Musical Ending](#activity-5-musical-ending)
+  - [Activity 3: Light Sensor](#activity3-light-sensor)
+  - [Activity 4: Line Follower](#activity-4-line-follower)
+  - [Activity 5: Wheel Control](#activity-5-wheel-control)
+  - [Activity 6: Musical Ending](#activity-7-musical-ending)
 
 ## Setting up the IDE for mBot
 * Install the Arduino IDE using the [Windows/Mac installer](https://www.arduino.cc/en/software)
@@ -61,27 +62,32 @@
 if (SERIAL_MONITOR_ACTIVATE)
     Serial.begin(9600);
 ```
-* You can see the results in the Serial Monitor that can be opened by clicking the magnifying glass icon at the top right of the IDE or pressing `Ctrl/Cmd+Shift+M`
+* You can see the results in the Serial Monitor that can be opened by clicking the magnifying glass icon at the top right of the IDE or pressing `Ctrl/Cmd + Shift + M`
 
 ## Activity 1 Ultrasonic Sensors
 ![Ultrasonic Sensors](https://github.com/sangitsdhar/mBot/blob/main/Images/uSsensor.png)
 
 * The ultrasonic sensor is connected to `PORT3` of the mBot
 * The sensor emits ultrasonic pulses & receives the reflections from the target.
-* By measuring the time between emission & reception, the distance can be estimated.
-* hint: Distance = Speed*Time
-* You can refer to this [ultrasonic_example]() to test it out.
+* Remember to include the line `MeRGBLed led(PORT_7); ` so that you can use the following functions to control and use these LEDs
+  - `led.setColor(rgb_no,red,green,blue);` : This function sets the corresponding RGB led (defoned by the valuey `rgb_no`) to the RGB 
+* You can refer to this [ultrasonic_example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_ultrasonic_test.ino) to test it out.
 
 ## Activity 2 RGB LED
 
 * The RGB LEDs are connected to the `PORT 7` of the mBOT. The two LEDs can be individually controlled or controlled together.The two leds are denoted by the variable `rgb_no` and the values can vary between `0` and `1`.
 * Remember to include the the line `#include <MeMCore.h>` at the start of the program. This line enables the use of the built-in functions for the different peripherals connected to the mBOT's mCore.
-* Remember to include the line `MeRGBLed led(PORT_7); ` so that you can use the following functions to control and use these LEDs
-  - `led.setColor(rgb_no,red,green,blue);` : This function sets the corresponding RGB led (defoned by the valuey `rgb_no`) to the RGB color spectrum defined with values in the variables `red`, `green` or `blue`.
-  - `led.show();` : This function is required to ensure that any setting of color is reflected on the RGB leds
-* You can refer to the file here to test this out
+* Remember to include the line `MeUltrasonic ultraSensor(PORT_3);` so that you can use the following function(s) to read the sensor input
+  - `ultraSensor.distanceCm();` : Gives the distance of the target/obstacle from the sensor in centimeters.
+* You can refer to the [rgb_example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_rgb_test.ino) here to test this out
  
-## Activity 3 Line Follower
+## Activity 3 Light Sensor
+
+* Remember to include the line `MeLightSensor lightSensor(PORT_6);` so that you can use the following function(s) to read the sensor input
+    - `lightSensor.read();`: It gives the relative light reading with 0 corresponding to total darkness and 1024 corresponding to full brightness
+* You can refer to this [light_sensor_example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_light_sensor_test.ino) to test this out.
+
+## Activity 4 Line Follower
 * The line follower module is connected to the `PORT 2` of the mBot.
 * There are two sensors in the line follower module denoted by `S1` and `S2`
 * Remember to include the line `MeLineFollower lineFinder(PORT_2);` so that you can use the following function(s) to understand the sensor input
@@ -92,9 +98,9 @@ if (SERIAL_MONITOR_ACTIVATE)
         - `S1_OUT_S2_OUT`: Sensor 1 and 2 are outside of black line
 * You can refer to this [line follower example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_line_follower_test.ino) to test this out.   
       
-## Activity 4 Wheel Control
-
-## Activity 5 Musical Ending
+## Activity 5 Wheel Control
+You can refer to this [vehicle_control_example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_vehicle_control_test.ino) to test out the different functions that will help control the motor.
+## Activity 6 Musical Ending
 * Remember to include the line `MeBuzzer buzzer;` so that you can use the following function(s) to control and play a tone through the buzzer.
     - `buzzer.tone(noteFrequency, noteDuration);`: This function plays the note corresponding to the frequency value in noteFrequency and for the time defined in the variable noteDuration
 * You can create different tunes to suit your requirements.
