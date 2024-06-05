@@ -6,6 +6,8 @@
   - [Setting up the IDE for mBot](#setting-up-the-ide-for-mbot)
   - [Essential Settings](#essential-settings)
   - [Arduino mBot Pin Mapping](#arduino-mbot-pin-mapping)
+  - [Install Makeblock Libraries](#install-makeblock-libraries)
+  - [Activity 1: Ultrasonic Sensors](#ultrasonic-sensors)
   - 
 ## Setting up the IDE for mBot
 * Install the Arduino IDE using the [Windows/Mac installer](https://www.arduino.cc/en/software)
@@ -37,3 +39,30 @@
 * D11 RJ25 plug 1 (default not-connected)
 * D12 RJ25 plug 1 (default not-connected)
 * D13 2 WS2812 RGB led
+
+## Install Makeblock Libraries
+* Install the [Makeblock libraries](https://github.com/sangitsdhar/mBot/blob/main/Drivers%20and%20Libraries/Makeblock-Libraries-master.zip) .
+* In the Arduino IDE:  Sketch > Include Library > Add .ZIP Library > select the downloaded file > Open. Restart the Arduino IDE.
+* If you are getting an error, unzip the .zip file and copy it to Documents\Arduino\libraries. Make sure that you can see subfolders examples, src and files library.properties, README.md in the path Documents\Arduino\libraries\Makeblock-Libraries.
+* The original library can be found at https://github.com/Makeblock-official/Makeblock-Libraries. There are a number of boards available; the mBot uses the MeMCore board. The original library files use MeOrion.h whereas mBot uses MeMCore.h.
+* If you get an error that Wire.h can't be found, please copy the Wire.h from Documents\Arduino\libraries\Makeblock-Libraries\src\utility to Documents\Arduino\libraries\Makeblock-Libraries\src\ folder.
+
+## Activity 1: Ultrasonic Sensors
+![Ultrasonic Sensors](https://github.com/sangitsdhar/mBot/blob/main/Images/uSsensor.png)
+
+* The sensor emits ultrasonic pulses & receives the reflections from the target
+* By measuring the time between emission & reception, we can estimate the distance
+
+### Estimating Distance
+
+distance_in_cm = double(duration) * SPEED_OF_SOUND * ______;
+* duration” is in microseconds (i.e., x 10-6 seconds)
+* “duration” measures the round-trip time
+* “SPEED_OF_SOUND” is in meter per second
+
+
+
+
+
+
+  
