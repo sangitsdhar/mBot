@@ -9,7 +9,7 @@
   - [Install Makeblock Libraries](#install-makeblock-libraries)
   - [Activity 0: Setting up Serial Communications](#activity-0-setting-up-serial-communications) 
   - [Activity 1: Ultrasonic Sensors](#activity-1-ultrasonic-sensors)
-  - [Activity 2: RGB LEDs](#activity-2-rgb-leds)
+  - [Activity 2: RGB LEDs](#activity-2-rgb-led)
   - [Activity 3: Line Follower](#activity-3-line-follower)
   - [Activity 4: Wheel Control](#activity-4-wheel-control)
   - [Activity 5: Musical Ending](#activity-5-musical-ending)
@@ -55,11 +55,13 @@
 ## Activity 0 Setting up Serial Communications
 
 * Being able to see the output of sensors is a simple way to ensure the activities are going in the right direction.
+* Remember to includ `#define SERIAL_MONITOR_ACTIVATE 1` at the start of the program.
 * Ensure that the `SERIAL_MONITOR_ACTIVATE` is set to 1 and the following code is present in  `void setup()` to ensure that serial communication is setup correctly
 ```
 if (SERIAL_MONITOR_ACTIVATE)
     Serial.begin(9600);
 ```
+* You can see the results in the Serial Monitor that can be opened by clicking the magnifying glass icon at the top right of the IDE or pressing `Ctrl/Cmd+Shift+M`
 
 ## Activity 1 Ultrasonic Sensors
 ![Ultrasonic Sensors](https://github.com/sangitsdhar/mBot/blob/main/Images/uSsensor.png)
@@ -67,10 +69,10 @@ if (SERIAL_MONITOR_ACTIVATE)
 * The ultrasonic sensor is connected to `PORT3` of the mBot
 * The sensor emits ultrasonic pulses & receives the reflections from the target.
 * By measuring the time between emission & reception, the distance can be estimated.
-* hint: Distance = Speed*Time 
+* hint: Distance = Speed*Time
+* You can refer to this [ultrasonic_example]() to test it out.
 
 ## Activity 2 RGB LED
-
 
 * The RGB LEDs are connected to the `PORT 7` of the mBOT. The two LEDs can be individually controlled or controlled together.The two leds are denoted by the variable `rgb_no` and the values can vary between `0` and `1`.
 * Remember to include the the line `#include <MeMCore.h>` at the start of the program. This line enables the use of the built-in functions for the different peripherals connected to the mBOT's mCore.
@@ -88,11 +90,11 @@ if (SERIAL_MONITOR_ACTIVATE)
         - `S1_IN_S2_OUT`: Sensor 2 is outside of black line
         - `S1_OUT_S2_IN`: Sensor 1 is outside of black line
         - `S1_OUT_S2_OUT`: Sensor 1 and 2 are outside of black line
-* You can refer tp this file to test this out
-    
+* You can refer to this [line follower example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_line_follower_test.ino) to test this out.   
       
-
 ## Activity 4 Wheel Control
 
 ## Activity 5 Musical Ending
-
+* Remember to include the line `MeBuzzer buzzer;` so that you can use the following function(s) to control and play a tone through the buzzer.
+    - `buzzer.tone(noteFrequency, noteDuration);`: This function plays the note corresponding to the frequency value in noteFrequency and for the time defined in the variable noteDuration
+* You can create different tunes to suit your requirements.
