@@ -13,6 +13,7 @@
   - [Activity 3: Line Follower](#activity-3-line-follower)
   - [Activity 4: Wheel Control](#activity-4-wheel-control)
   - [Activity 5: Musical Ending](#activity-5-musical-ending)
+
 ## Setting up the IDE for mBot
 * Install the Arduino IDE using the [Windows/Mac installer](https://www.arduino.cc/en/software)
 * When it asks you to install certain drivers, click yes / allow.
@@ -95,7 +96,3 @@ if (SERIAL_MONITOR_ACTIVATE)
 
 ## Activity 5 Musical Ending
 
-
-
-
-  
