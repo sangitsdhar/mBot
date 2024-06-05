@@ -7,8 +7,13 @@
   - [Essential Settings](#essential-settings)
   - [Arduino mBot Pin Mapping](#arduino-mbot-pin-mapping)
   - [Install Makeblock Libraries](#install-makeblock-libraries)
-  - [Activity 1: Ultrasonic Sensors](#ultrasonic-sensors)
-  - 
+  - [Activity 0: Setting up Serial Communications](#activity-0-setting-up-serial-communications) 
+  - [Activity 1: Ultrasonic Sensors](#activity-1-ultrasonic-sensors)
+  - [Activity 2: RGB LEDs](#activity-2-rgb-leds)
+  - [Activity 3: Line Follower](#activity-3-line-follower)
+  - [Activity 4: Wheel Control](#activity-4-wheel-control)
+  - [Activity 5: Musical Ending](#activity-5-musical-ending)
+
 ## Setting up the IDE for mBot
 * Install the Arduino IDE using the [Windows/Mac installer](https://www.arduino.cc/en/software)
 * When it asks you to install certain drivers, click yes / allow.
@@ -47,22 +52,47 @@
 * The original library can be found at https://github.com/Makeblock-official/Makeblock-Libraries. There are a number of boards available; the mBot uses the MeMCore board. The original library files use MeOrion.h whereas mBot uses MeMCore.h.
 * If you get an error that Wire.h can't be found, please copy the Wire.h from Documents\Arduino\libraries\Makeblock-Libraries\src\utility to Documents\Arduino\libraries\Makeblock-Libraries\src\ folder.
 
-## Activity 1: Ultrasonic Sensors
+## Activity 0 Setting up Serial Communications
+
+* Being able to see the output of sensors is a simple way to ensure the activities are going in the right direction.
+* Ensure that the `SERIAL_MONITOR_ACTIVATE` is set to 1 and the following code is present in  `void setup()` to ensure that serial communication is setup correctly
+```
+if (SERIAL_MONITOR_ACTIVATE)
+    Serial.begin(9600);
+```
+
+## Activity 1 Ultrasonic Sensors
 ![Ultrasonic Sensors](https://github.com/sangitsdhar/mBot/blob/main/Images/uSsensor.png)
 
-* The sensor emits ultrasonic pulses & receives the reflections from the target
-* By measuring the time between emission & reception, we can estimate the distance
+* The ultrasonic sensor is connected to `PORT3` of the mBot
+* The sensor emits ultrasonic pulses & receives the reflections from the target.
+* By measuring the time between emission & reception, the distance can be estimated.
+* hint: Distance = Speed*Time 
 
-### Estimating Distance
-
-distance_in_cm = double(duration) * SPEED_OF_SOUND * ______;
-* duration” is in microseconds (i.e., x 10-6 seconds)
-* “duration” measures the round-trip time
-* “SPEED_OF_SOUND” is in meter per second
+## Activity 2 RGB LED
 
 
+* The RGB LEDs are connected to the `PORT 7` of the mBOT. The two LEDs can be individually controlled or controlled together.The two leds are denoted by the variable `rgb_no` and the values can vary between `0` and `1`.
+* Remember to include the the line `#include <MeMCore.h>` at the start of the program. This line enables the use of the built-in functions for the different peripherals connected to the mBOT's mCore.
+* Remember to include the line `MeRGBLed led(PORT_7); ` so that you can use the following functions to control and use these LEDs
+  - `led.setColor(rgb_no,red,green,blue);` : This function sets the corresponding RGB led (defoned by the valuey `rgb_no`) to the RGB color spectrum defined with values in the variables `red`, `green` or `blue`.
+  - `led.show();` : This function is required to ensure that any setting of color is reflected on the RGB leds
+* You can refer to the file here to test this out
+ 
+## Activity 3 Line Follower
+* The line follower module is connected to the `PORT 2` of the mBot.
+* There are two sensors in the line follower module denoted by `S1` and `S2`
+* Remember to include the line `MeLineFollower lineFinder(PORT_2);` so that you can use the following function(s) to understand the sensor input
+    - `lineFinder.readSensors()`: It give the following outputs depending on the module sensor state;
+        - `S1_IN_S2_IN`: Sensor 1 and 2 are inside of black line
+        - `S1_IN_S2_OUT`: Sensor 2 is outside of black line
+        - `S1_OUT_S2_IN`: Sensor 1 is outside of black line
+        - `S1_OUT_S2_OUT`: Sensor 1 and 2 are outside of black line
+* You can refer tp this file to test this out
+    
+      
 
+## Activity 4 Wheel Control
 
+## Activity 5 Musical Ending
 
-
-  
