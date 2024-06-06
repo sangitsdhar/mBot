@@ -166,7 +166,7 @@ void loop() {
       {
         // Turn Left
       }
-      black_line_counter ++ // Increase the black_line_counter to keep track of all the black lines
+      black_line_counter++ // Increase the black_line_counter to keep track of all the black lines
     }
   
   }
