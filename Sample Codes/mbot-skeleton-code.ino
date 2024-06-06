@@ -32,7 +32,7 @@ MeLightSensor lightSensor(PORT_6);
 MeLineFollower lineFinder(PORT_2); 
 MeDCMotor motorL(M1);
 MeDCMotor motorR(M2);
-MeBuzzer buzzer
+MeBuzzer buzzer;
 MeRGBLed led(PORT_7);
 
 /**************************************************
