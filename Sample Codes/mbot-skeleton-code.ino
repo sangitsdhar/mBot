@@ -177,7 +177,7 @@ void loop() {
     // check to see if it too much towards the wall of the mazes
     // Read the Ultrasonic sensor to check the distance to the side wall of the maze
     // you may need to change the ultrasonic sensor to the side of the mbot
-    if (ultrasonic_distance >NEAR_WALL_DIST)
+    if (ultrasonic_distance <NEAR_WALL_DIST)
     {
       //Too close to the wall on this side. Nudge to the other direction      
     }
