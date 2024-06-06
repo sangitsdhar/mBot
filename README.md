@@ -25,8 +25,6 @@ if (SERIAL_MONITOR_ACTIVATE)
     Serial.begin(9600);
 ```
 * You can see the results in the Serial Monitor that can be opened by clicking the magnifying glass icon at the top right of the IDE or pressing `Ctrl/Cmd + Shift + M`
-* Remember to include the line `MeRGBLed led(PORT_7); ` so that you can use the following functions to control and use these LEDs
-  - `led.setColor(rgb_no,red,green,blue);` : This function sets the corresponding RGB led (defoned by the valuey `rgb_no`) to the RGB 
 * You can refer to this [ultrasonic_example](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot_ultrasonic_test.ino) to test it out.
 
 ## Activity 2 Light Sensor
