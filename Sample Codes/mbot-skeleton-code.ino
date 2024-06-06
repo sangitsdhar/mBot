@@ -32,13 +32,13 @@ MeLightSensor lightSensor(PORT_6);
 MeLineFollower lineFinder(PORT_2); 
 MeDCMotor motorL(M1);
 MeDCMotor motorR(M2);
-MeLightSensor lightSensor(PORT_6);
+MeBuzzer buzzer
 MeRGBLed led(PORT_7);
 
 /**************************************************
 Variables commonly used in the different functions
 ***************************************************/
-int black_line_counter = 1       /* A variable to count the number of black lines*/
+int black_line_counter = 1;       /* A variable to count the number of black lines*/
 int light_value = 0;             /* A variable for the lightSensor's value */
 double ultrasonic_distance = 0;  /* A variable to store the ultrasonic sensor value*/
 
@@ -166,7 +166,7 @@ void loop() {
       {
         // Turn Left
       }
-      black_line_counter++ // Increase the black_line_counter to keep track of all the black lines
+      black_line_counter++; // Increase the black_line_counter to keep track of all the black lines
     }
   
   }
