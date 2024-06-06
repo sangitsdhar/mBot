@@ -117,6 +117,9 @@ void setup() {
   if(SERIAL_MONITOR_ACTIVATE)
     Serial.begin(9600);
 
+  // Code to reset the RGB LEDs if they are on from the previous run
+    led.reset(PORT_7);
+    led.show();
 
 }
 
