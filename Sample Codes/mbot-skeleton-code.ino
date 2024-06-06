@@ -12,11 +12,11 @@ Paramters that can be modified
 #define SERIAL_MONITOR_ACTIVATE 1 /* Set to 1 to use the serial monitor; set to 0 to disable the serial monitor  */
 
 // Paramters for the vehicle control
-#define MOTOR_INTERVAL        20
-#define NORMALSPEED           200 
-#define TURNINGSPEED          160
-#define FASTER_WHEEL_SPEED    250 
-#define SLOWER_WHEEL_SPEED    180 
+#define MOTOR_INTERVAL        20  // this controls how much the vehicle moves forward or stops
+#define NORMALSPEED           200 // This is the recommended speed for normal forward motion. Can be sdjusted 
+#define TURNINGSPEED          160 // The speed is used for turning left or right. Can be adjusted
+#define FASTER_WHEEL_SPEED    250 // This is used in nudgeLeft and nudgeRight to slide the vehicle in the respective direction. Can be adjusted 
+#define SLOWER_WHEEL_SPEED    180 // This is used in nudgeLeft and nudgeRight to slide the vehicle in the respective direction. Can be adjusted
 #define NUDGING_THRES_DIST    4 // between 4 to 9 cm
 #define NINETY_DEGREE_TIME    470 // time taken (in ms) to get 90 degree turn
 
@@ -34,7 +34,7 @@ MeRGBLed led(PORT_7);
 /**************************************************
 Variables commonly used in the different functions
 ***************************************************/
-int black_line_counter = 4 /* A variable to count the number of black lines*/
+int black_line_counter = 0 /* A variable to count the number of black lines*/
 int light_value = 0;      /* a variable for the lightSensor's value */
 
 
