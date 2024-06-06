@@ -70,6 +70,6 @@ if (SERIAL_MONITOR_ACTIVATE)
      1. If light intensity is very bright --> Turn Right
      2. If light intensity is darker/not very bright --> Turn Left
   4. Reach the final black line at the end of the maze and play a musical tone/sound.
-  5. Use the sample skeleton code and/or your own versions to combine the above activities to solve the following maze
+  5. Use the sample [skeleton code](https://github.com/sangitsdhar/mBot/blob/main/Sample%20Codes/mbot-skeleton-code.ino) and/or your own versions to combine the above activities to solve the following maze
 
 ![mBoT Maze](https://github.com/sangitsdhar/mBot/blob/main/Images/maze%20picture.png)     
