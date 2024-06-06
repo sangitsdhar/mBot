@@ -13,7 +13,7 @@ Paramters that can be modified
 
 // Paramters for the vehicle control
 #define MOTOR_INTERVAL        20  // this controls how much the vehicle moves forward or stops
-#define NORMALSPEED           200 // This is the recommended speed for normal forward motion. Can be sdjusted 
+#define NORMALSPEED           200 // This is the recommended speed for normal forward motion. Can be adjusted to make the mBot go slower or faster
 #define TURNINGSPEED          160 // The speed is used for turning left or right. Can be adjusted
 #define FASTER_WHEEL_SPEED    250 // This is used in nudgeLeft and nudgeRight to slide the vehicle in the respective direction. Can be adjusted 
 #define SLOWER_WHEEL_SPEED    180 // This is used in nudgeLeft and nudgeRight to slide the vehicle in the respective direction. Can be adjusted
