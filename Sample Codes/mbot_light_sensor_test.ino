@@ -23,7 +23,7 @@ void loop()
   // print the results to the serial monitor
   Serial.print("value = ");
   Serial.println(light_value);
-  // wait 100 milliseconds before the next loop
+  // wait 500 milliseconds before the next loop
   delay(500);
 
 }
