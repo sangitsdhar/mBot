@@ -8,12 +8,17 @@ Author: Sangit Sasidhar
 #define SERIAL_MONITOR_ACTIVATE 1 /* Set to 1 to use the serial monitor; set to 0 to disable the serial monitor  */
 
 MeLightSensor lightSensor(PORT_6);
+MeRGBLed led(PORT_7);
+
 int light_value = 0;      /* a variable for the lightSensor's value */
 
 void setup()
 {
   if(SERIAL_MONITOR_ACTIVATE)
     Serial.begin(9600);
+  led.reset(PORT_7);
+  led.show();
+    
 }
 
 void loop()
