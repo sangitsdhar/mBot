@@ -18,7 +18,7 @@ Paramters that can be modified
 #define FASTER_WHEEL_SPEED    250 // This is used in nudgeLeft and nudgeRight to slide the vehicle in the respective direction. Can be adjusted 
 #define SLOWER_WHEEL_SPEED    180 // This is used in nudgeLeft and nudgeRight to slide the vehicle in the respective direction. Can be adjusted
 #define NEAR_WALL_DIST        4   // between 4 to 9 cm. This decides how close the mBot is to the wall nearer to the ultrasonic sensor 
-#define FAR_WALL_DIST         9   // between 9 to 12 cm. This decides how far the mBot is to the wall farther to the ultrasonic sensor
+#define FAR_WALL_DIST         9   // between 9 to 12 cm. This decides how far the mBot is to the wall farthest to the ultrasonic sensor
 #define NINETY_DEGREE_TIME    470 // time taken (in ms) to get 90 degree turn
 
 // Paramter to decide on the Light Dark Threshold
@@ -186,7 +186,7 @@ void loop() {
     }
     if (ultrasonic_distance >FAR_WALL_DIST)
     {
-      //Too close to the wall on the other side. Nudge to the other direction      
+      //Too close to the wall on the other side. Too far away from the wall  on the ultrasonic sensor. Nudge to the other direction      
     }
 
     // IF it is moving along the centre of the maze then keep moving forward.
